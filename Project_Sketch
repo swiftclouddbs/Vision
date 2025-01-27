@@ -1,0 +1,59 @@
+Our goal is a system to determine if files contain useful info.  We will do this by having
+llava look at pie charts of datasets and determine if they are useful or not.
+
+
+Useful for pie_top_five and graph_bar+pie
+
+SELECT IP, COUNT(*) AS count
+FROM Aug24_Windows
+GROUP BY IP
+ORDER BY count DESC
+LIMIT 5;
+
+
+Project Goal:
+We want the system to create pie charts for D&D datasets. -> DONE!!
+Output a jpeg graph with file name included
+Collect a group these and have llava exmaine the images:
+	Which image has the greatest percentage of IP xxx.xxx.xxx.xxx
+	Which image has the least percentage of IP xxx.xxx.xxx.xxx
+	Which image(s) have data on IP xxx.xxx.xxx.xxx
+
+
+Sample Databases:
+Name		Tables
+Level_Four	Sept24		test frq. by IP
+		Aug24_Win  	test frq. by IP
+		Aug24_Linux  	test frq. by IP
+
+Level_Five	Sept24		test frq. by IP
+		Aug24_Win   	test frq. by IP
+		Aug24_Linux  	test frq. by IP
+
+See tables in database, using sql submission form, enter DB name &:
+
+SELECT name 
+FROM sqlite_master 
+WHERE type = 'table';
+
+
+Milestone:  We have loaded the data and charts are being generated.  Need to alter
+code so charts are lable with relevant data and saved to jpeg.  ->   DONE!!
+
+To create pie charts:
+
+Type in database name
+
+SELECT IP, COUNT(*) AS count
+FROM Sept_24
+GROUP BY IP
+ORDER BY count DESC
+LIMIT 5;
+
+
+We now have a set of jpeg files.  10.21.41.82 is a promient IP.
+	ID files where 10.21.41.82 appears
+	ID file where you see 10.21.41
+	In the file, what percent of the graph belongs to 10.21.66.163? (L5_Sept24)
+
+
